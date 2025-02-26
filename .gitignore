@@ -1,0 +1,3 @@
+# MacOS- & Jupyter-Cache-Dateien
+.DS_Store
+*.ipynb_checkpoints/
