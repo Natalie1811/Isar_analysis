@@ -1,3 +1,7 @@
 # MacOS- & Jupyter-Cache-Dateien
 .DS_Store
 *.ipynb_checkpoints/
+data/Sylvensteinspeicher/
+data/zips/
+archive/
+data/CSV-ALT/
