@@ -5,3 +5,5 @@ data/Sylvensteinspeicher/
 data/zips/
 archive/
 data/CSV-ALT/
+__pycache__/
+*.pyc
