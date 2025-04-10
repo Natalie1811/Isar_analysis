@@ -369,14 +369,22 @@ def diff_medians_outliers(df, col_name, outlier_col):
       # Calculate the median of the column excluding outliers
       median_excl = df[df[outlier_col] == 'normal'][col_name].median()
 
-      # calculate the differences of both medians in %
-      diff_median_perc = (median_incl - median_excl)/median_incl * 100
-     
-       # Print the results
-      print(f"{col_name}:\nMedian:{median_incl}\
-         \nMedian without outliers:{median_excl}\
-         \nThe Difference is: {round(diff_median_perc,2)}%\
-         \n________________")
+      # If median_incl == 0, print a warning and skip the calculation
+      if median_incl == 0:
+          print(f"{col_name}\
+                \nMedian:{median_incl}\
+                \nMedian without outliers:{median_excl}\
+                \n⚠️ No calculation possible (Median = 0)\
+                \n________________")
+      else:
+        # calculate the differences of both medians in %
+        diff_median_perc = (median_incl - median_excl)/median_incl * 100
+        
+        # Print the results
+        print(f"{col_name}:\nMedian:{median_incl}\
+            \nMedian without outliers:{median_excl}\
+            \nThe Difference is: {round(diff_median_perc,2)}%\
+            \n________________")
 
 def diff_means_outliers(df, col_name, outlier_col):
       """
@@ -406,14 +414,23 @@ def diff_means_outliers(df, col_name, outlier_col):
       # Calculate the median of the column excluding outliers
       mean_excl = df[df[outlier_col] == 'normal'][col_name].mean()
 
-      # calculate the differences of both medians in %
-      diff_mean_perc = (mean_incl - mean_excl)/mean_incl * 100
-     
-       # Print the results
-      print(f"{col_name}:\nMean:{mean_incl}\
-         \nMean without outliers:{mean_excl}\
-         \nThe Difference is: {round(diff_mean_perc,2)}%\
-         \n________________")
+      # If mean_incl == 0, print a warning and skip the calculation
+      if mean_incl == 0:
+          print(f"{col_name}\
+                \nMedian:{mean_incl}\
+                \nMedian without outliers:{mean_excl}\
+                \n⚠️ No calculation possible (Median = 0)\
+                \n________________")
+      else:
+
+        # calculate the differences of both medians in %
+        diff_mean_perc = (mean_incl - mean_excl)/mean_incl * 100
+        
+        # Print the results
+        print(f"{col_name}:\nMean:{mean_incl}\
+            \nMean without outliers:{mean_excl}\
+            \nThe Difference is: {round(diff_mean_perc,2)}%\
+            \n________________")
 
 def calculate_neighbours_mean(df, column):
     """
